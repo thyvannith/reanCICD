@@ -5,6 +5,7 @@ pipeline {
     environment {
         IMAGE_NAME = "my-awesome-app"
         IMAGE_TAG = "${env.BUILD_NUMBER}" // ប្រើលេខ Build របស់ Jenkins ជា Tag (ឧទាហរណ៍: my-awesome-app:5)
+        DOCKER_USER = "thyvannith123"
     }
 
     stages {
@@ -68,5 +69,5 @@ pipeline {
             sh 'docker logout'
         }
     }
-    
+
 }
