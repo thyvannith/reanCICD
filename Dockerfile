@@ -1,5 +1,6 @@
 FROM nginx:alpine
 
-COPY . /usr/share/nginx/html
+COPY /src /usr/share/nginx/html
+COPY /Dockerfile /usr/share/nginx/html/Dockerfile
 
 EXPOSE 80
