@@ -20,15 +20,15 @@ pipeline {
             steps {
                 echo "កំពុង Build Docker Image: ${IMAGE_NAME}:${IMAGE_TAG}..."
                 // ដំណើរការបញ្ជា docker build
-                sh 'docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .'
-                sh 'docker build -t ${IMAGE_NAME}:latest .' // បង្កើត Tag latest មួយទៀត
+                sh 'docker build -t ${DOCKER_USER}/${IMAGE_NAME}:${IMAGE_TAG} .'
+                sh 'docker build -t ${DOCKER_USER}/${IMAGE_NAME}:latest .' // បង្កើត Tag latest មួយទៀត
             }
         }
         
         stage('ត្រួតពិនិត្យ (Verify Image)') {
             steps {
                 echo 'កំពុងត្រួតពិនិត្យមើល Image ដែលទើបតែ Build រួច...'
-                sh 'docker image ls | grep ${IMAGE_NAME}'
+                sh 'docker image ls | grep ${DOCKER_USER}/${IMAGE_NAME}'
             }
         }
 
