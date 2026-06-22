@@ -56,7 +56,7 @@ pipeline {
                 
                 // 2. ដំណើរការ Container ថ្មី
                 // ឧទាហរណ៍ ភ្ជាប់ Port 80 ទូទៅ ទៅកាន់ Port 8000 របស់កម្មវិធី Django
-                sh 'docker run -d --name ${IMAGE_NAME} -p 80:8000 ${DOCKER_USER}/${IMAGE_NAME}:${IMAGE_TAG}'
+                sh 'docker run -d --name ${IMAGE_NAME} -p 8000:80 ${DOCKER_USER}/${IMAGE_NAME}:${IMAGE_TAG}'
             }
         }
     }
